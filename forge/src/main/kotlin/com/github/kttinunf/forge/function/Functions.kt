@@ -8,7 +8,7 @@ import java.util.*
  */
 
 //date
-public fun toDate(style: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"): (String) -> Date = {
+fun toDate(style: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"): (String) -> Date = {
     val formatter = SimpleDateFormat(style, Locale.getDefault())
     formatter.parse(it)
 }

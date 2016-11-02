@@ -6,6 +6,11 @@ package com.github.kttinunf.forge.core
 
 sealed public class Result<out T : Any?> {
 
+    companion object {
+        fun missing(property: String) = Result.Failure(PropertyNotFoundException(property))
+        fun mismatch(expected: String) = Result.Failure(TypeMisMatchException(expected))
+    }
+
     public operator abstract fun component1(): T?
     public operator abstract fun component2(): Exception?
 
