@@ -1,4 +1,6 @@
 package com.github.kttinunf.forge.core
+import com.github.kttinunf.forge.core.PropertyNotFoundException
+import com.github.kttinunf.forge.core.TypeMisMatchException
 
 /**
  * Created by Kittinun Vantasin on 9/20/15.
@@ -7,8 +9,8 @@ package com.github.kttinunf.forge.core
 sealed public class Result<out T : Any?> {
 
     companion object {
-        fun missing(property: String) = Result.Failure(PropertyNotFoundException(property))
-        fun mismatch(expected: String) = Result.Failure(TypeMisMatchException(expected))
+        fun missing(property: String): Result.Failure = Result.Failure(PropertyNotFoundException(property))
+        fun mismatch(expected: String): Result.Failure = Result.Failure(TypeMisMatchException(expected))
     }
 
     public operator abstract fun component1(): T?
