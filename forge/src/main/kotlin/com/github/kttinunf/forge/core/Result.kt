@@ -10,7 +10,7 @@ sealed public class Result<out T : Any?> {
 
     companion object {
         fun<T: Any?> missing(property: String) = Result.Failure<T>(PropertyNotFoundException(property))
-        fun<T: Any?> mismatch(expected: String): Result.Failure = Result.Failure<T>(TypeMisMatchException(expected))
+        fun<T: Any?> mismatch(expected: String) = Result.Failure<T>(TypeMisMatchException(expected))
     }
 
     public operator abstract fun component1(): T?
