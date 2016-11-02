@@ -18,7 +18,7 @@ sealed public class JSON() : Sequence<JSON> {
 
         override fun iterator() = object : Iterator<JSON> {
 
-            val it = value.keySet().iterator()
+            val it = value.keys.iterator()
 
             override fun next(): JSON {
                 val key = it.next()
